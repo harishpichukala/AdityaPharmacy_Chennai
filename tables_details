@@ -1,0 +1,3 @@
+Tables:
+dbo.CustomerTrans
+#select * from dbo.CustomerTrans where LastBillNumber='C01034858';
