@@ -1,0 +1,23 @@
+select * from dbo.CustomerTrans;
+
+create table Harish_Test1(
+id int NOT NULL PRIMARY KEY IDENTITY,
+LastBillDate CHAR(20),
+LastBillAmount CHAR(10),
+LastBillNumber CHAR(15),
+TransactionType CHAR(20),
+comments CHAR(5));
+
+select * from Harish_Test1;
+
+INSERT INTO Harish_Test1(LastBillDate,LastBillNumber) values('2020-05-18','Bill123');
+
+CREATE TRIGGER testTrigger ON dbo.CustomerTrans
+FOR INSERT
+AS
+INSERT INTO HarishTest1
+    (LastBillDate,LastBillAmount,LastBillNumber)
+    SELECT
+        LastBillDate,LastBillAmount,LastBillNumber
+        FROM inserted
+GO
