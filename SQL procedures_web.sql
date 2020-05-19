@@ -6,30 +6,6 @@ IF SCHEMA_ID('web') IS NULL BEGIN
 END
 GO
 
-CREATE LOGIN harish WITH PASSWORD = 'pass@123';
-CREATE USER harish FOR LOGIN harish;  
-
-
-/*
-	Create user to be used in the sample API solution
-*/
-CREATE USER MyUser
-WITH PASSWORD = 'pass@123';
-GO
-
-
-USE [MyDb]
-GO
-IF USER_ID('PythonWebApp') IS NULL BEGIN	
-	CREATE USER [PythonWebApp] WITH PASSWORD = 'a987REALLY#$%TRONGpa44w0rd';	
-END
-
-/*
-	Grant execute permission to created users
-*/
-GRANT EXECUTE ON SCHEMA::[web] TO [harish];
-GRANT EXECUTE ON SCHEMA::[dbo] TO [harish];
-GO
 
 /*
 	Return details on a specific customer
