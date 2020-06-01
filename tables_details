@@ -2,7 +2,7 @@ Tables:
 dbo.CustomerTrans - Month End Transaction Update will happen on this  table. Sync will happen on first of every month
 #select * from dbo.CustomerTrans where LastBillNumber='C01034858';
 
-dbo.dvw_SaleInformation => Will contain all the information
+dbo.dvw_SaleInformation => Will contain all the information -> SaleInformation is the actual table.
 
 select * from dbo.dvw_SaleInformation;
 
@@ -27,3 +27,11 @@ INSERT INTO Harish_Test1
         Billtime,Billamount,BillNumber
         FROM inserted
 GO
+
+
+SQL query to check the backend tables for the view
+
+select OBJECT_NAME(referenced_major_id) as DependantObject
+from sys.sql_dependencies
+where object_id = object_id('YourViewName')
+
