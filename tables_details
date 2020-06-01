@@ -1,3 +1,5 @@
 Tables:
 dbo.CustomerTrans - Month End Transaction Update will happen on this  table. Sync will happen on first of every month
 #select * from dbo.CustomerTrans where LastBillNumber='C01034858';
+
+dbo.dvw_SaleInformation => Will contain all the information
