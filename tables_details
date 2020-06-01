@@ -3,3 +3,27 @@ dbo.CustomerTrans - Month End Transaction Update will happen on this  table. Syn
 #select * from dbo.CustomerTrans where LastBillNumber='C01034858';
 
 dbo.dvw_SaleInformation => Will contain all the information
+
+select * from dbo.dvw_SaleInformation;
+
+
+BNumber,Billtime,Billamount
+
+create table Harish_Test1(
+id int NOT NULL PRIMARY KEY IDENTITY,
+BillDate CHAR(40),
+BillAmount CHAR(10),
+BillNumber CHAR(15),
+TransactionType CHAR(20),
+comments CHAR(5));
+
+
+CREATE TRIGGER testTrigger ON dbo.dvw_SaleInformation
+FOR INSERT
+AS
+INSERT INTO Harish_Test1
+    (BillDate,BillAmount,BillNumber)
+    SELECT
+        Billtime,Billamount,BillNumber
+        FROM inserted
+GO
