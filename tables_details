@@ -35,3 +35,10 @@ select OBJECT_NAME(referenced_major_id) as DependantObject
 from sys.sql_dependencies
 where object_id = object_id('YourViewName')
 
+
+SQL Query to check the tables related to the  view
+
+SELECT view_name, Table_Name
+FROM INFORMATION_SCHEMA.VIEW_TABLE_USAGE
+WHERE View_Name = '<giveViewName>'
+ORDER BY view_name, table_name
