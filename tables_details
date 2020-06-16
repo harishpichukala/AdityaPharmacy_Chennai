@@ -42,3 +42,24 @@ SELECT view_name, Table_Name
 FROM INFORMATION_SCHEMA.VIEW_TABLE_USAGE
 WHERE View_Name = '<giveViewName>'
 ORDER BY view_name, table_name
+
+
+Trigger Code:
+
+USE [adityachennai]
+GO
+/****** Object:  Trigger [dbo].[testTrigger]    Script Date: 16/06/20 10:14:16 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER TRIGGER  [dbo].[testTrigger] 
+ON [dbo].[SaleInformation] 
+FOR INSERT
+AS
+INSERT INTO Harish_Test1
+    (BillDate,BillAmount,BillNumber)
+    SELECT
+        Billtime,Billamount,BillNumber
+        FROM inserted
+        
